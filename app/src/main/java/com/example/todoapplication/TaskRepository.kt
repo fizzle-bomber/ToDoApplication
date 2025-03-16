@@ -18,5 +18,8 @@ class TaskRepository(private val taskDao: TaskDao) {
         taskDao.delete(taskId)
     }
 
+    fun getTaskById(taskId: Int): LiveData<Task> {
+        return taskDao.getTaskById(taskId)
+    }
 
 }

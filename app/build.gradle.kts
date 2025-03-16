@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp) // KSP for Room & Hilt
+    alias(libs.plugins.navigation.safe.args) // Add this line
 
 }
 

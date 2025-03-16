@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todoapplication.databinding.FragmentTaskBinding
 
+
 class TaskFragment : Fragment() {
 
+    private lateinit var taskAdapter: TasksAdapter
     private val viewModel: TaskViewModel by viewModels {
         TasksViewModelFactory((requireActivity().application as TodoApplication).repository)
     }
@@ -29,21 +32,34 @@ class TaskFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = TasksAdapter { task ->
-            //Handle task click
-            viewModel.update(task.copy(isCompleted = !task.isCompleted))
-        }
-
+// Initialize Adapter
+        taskAdapter = TasksAdapter(
+            onTaskClick = { task ->
+                // Navigate to AddEditTaskFragment for editing
+                val action = TaskFragmentDirections.actionTaskFragmentToAddTaskFragment(task.id)
+                findNavController().navigate(action)
+            },
+            onTaskDelete = { task ->
+                // Delete the task
+                viewModel.delete(task.id)
+            },
+            onTaskCheckboxClick = { task ->
+                // Toggle completion status
+                task.isCompleted = !task.isCompleted
+                viewModel.update(task)
+            }
+        )
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView.adapter = adapter
+        binding.recyclerView.adapter = taskAdapter
 
         viewModel.allTasks.observe(viewLifecycleOwner) { tasks ->
-            tasks?.let { adapter.submitList(it) }
+            tasks?.let { taskAdapter.submitList(it) }
         }
 
+        // Handle FAB click (add new task)
         binding.fab.setOnClickListener {
-            val task = Task(title = "New Task", description = "Task Description")
-            viewModel.insert(task)
+            val action = TaskFragmentDirections.actionTaskFragmentToAddTaskFragment(-1)
+            findNavController().navigate(action)
         }
 
     }

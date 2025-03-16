@@ -20,4 +20,8 @@ class TaskViewModel(private val taskRepository: TaskRepository) : ViewModel() {
     fun delete(taskId: Int) = viewModelScope.launch {
         taskRepository.delete(taskId)
     }
+
+    fun getTaskById(taskId: Int): LiveData<Task> {
+        return taskRepository.getTaskById(taskId)
+    }
 }

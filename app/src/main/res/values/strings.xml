@@ -5,4 +5,7 @@
     <string name="action_button">Action Button</string>
     <string name="task_title">Task Title</string>
     <string name="task_description">Task Description</string>
+    <string name="delete_task_button">Delete Task Button</string>
+    <string name="sample_description_is_given">Sample Description is given</string>
+    <string name="sample_text_title_is_given">Sample Text Title is Given</string>
 </resources>

@@ -2,11 +2,24 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/tasksFragment">
+    app:startDestination="@id/taskFragment">
+
 
     <fragment
-        android:id="@+id/tasksFragment"
+        android:id="@+id/taskFragment"
         android:name="com.example.todoapplication.TaskFragment"
-        android:label="Tasks" />
-
+        android:label="TaskFragment" >
+        <action
+            android:id="@+id/action_taskFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.example.todoapplication.AddTaskFragment"
+        android:label="AddTaskFragment" >
+        <argument
+            android:name="taskId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>

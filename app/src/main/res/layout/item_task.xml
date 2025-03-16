@@ -21,9 +21,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:text="@string/sample_text_title_is_given"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toTopOf="@id/taskDescription"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/taskDelete"
         app:layout_constraintStart_toEndOf="@id/taskCheckbox"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,12 +33,24 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:text="@string/sample_description_is_given"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/taskDelete"
         app:layout_constraintStart_toEndOf="@id/taskCheckbox"
         app:layout_constraintTop_toBottomOf="@id/taskTitle" />
+
+    <ImageView
+        android:id="@+id/taskDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/delete_task_button"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
