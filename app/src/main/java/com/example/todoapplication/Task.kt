@@ -10,5 +10,7 @@ data class Task(
     val title: String,
     val description: String,
     var isCompleted: Boolean = false,
-    var dueDate: Date? = null // Add due date field
+    var dueDate: Date? = null, // Add due date field
+    var categoryId: Int? = null // Add categoryId
+
 )

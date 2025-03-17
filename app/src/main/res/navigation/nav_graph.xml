@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_taskFragment_to_addTaskFragment"
             app:destination="@id/addTaskFragment" />
+        <action
+            android:id="@+id/action_taskListFragment_to_categoryListFragment"
+            app:destination="@id/categoryListFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTaskFragment"
@@ -22,4 +25,8 @@
             app:argType="integer"
             android:defaultValue="-1" />
     </fragment>
+    <fragment
+        android:id="@+id/categoryListFragment"
+        android:name="com.example.todoapplication.CategoryListFragment"
+        android:label="Categories" />
 </navigation>

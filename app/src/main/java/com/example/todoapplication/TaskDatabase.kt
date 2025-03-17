@@ -6,11 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-@Database(entities = [Task::class], version = 2, exportSchema = false)
+@Database(entities = [Task::class, Category::class], version = 3, exportSchema = false)
 @TypeConverters(DateConverters::class) // Register the TypeConverter
 abstract class TaskDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TaskDao
+    abstract fun categoryDao(): CategoryDao
 
     companion object {
         @Volatile

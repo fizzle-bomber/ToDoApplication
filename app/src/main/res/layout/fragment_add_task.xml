@@ -47,6 +47,13 @@
         android:text="Set Due Date"
         android:layout_marginTop="16dp" />
 
+    <!-- Category Spinner -->
+    <Spinner
+        android:id="@+id/spinnerCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
     <!-- Save/Update Button -->
     <Button
         android:id="@+id/buttonSave"

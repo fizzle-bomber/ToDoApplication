@@ -62,6 +62,10 @@ class TaskFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        binding.buttonManageCategories.setOnClickListener {
+            findNavController().navigate(R.id.action_taskListFragment_to_categoryListFragment)
+        }
+
     }
 
     override fun onDestroy() {
