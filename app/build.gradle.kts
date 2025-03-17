@@ -70,5 +70,6 @@ dependencies {
     implementation(libs.moshi.kotlin)
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)
+    implementation(libs.androidx.work.runtime.ktx) // Add this line
 
 }
